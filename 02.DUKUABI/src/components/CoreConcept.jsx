@@ -16,10 +16,9 @@ function CoreConcepts() {
     <section id="core-concepts">
       <h2>Time to get started!</h2>
       <ul>
-        <CoreConceptList {...CORE_CONCEPTS[0]} />
-        <CoreConceptList {...CORE_CONCEPTS[1]} />
-        <CoreConceptList {...CORE_CONCEPTS[2]} />
-        <CoreConceptList {...CORE_CONCEPTS[3]} />
+        {CORE_CONCEPTS.map((conceptItem) => (
+          <CoreConceptList key={conceptItem.title} {...conceptItem} />
+        ))}
       </ul>
     </section>
   );
