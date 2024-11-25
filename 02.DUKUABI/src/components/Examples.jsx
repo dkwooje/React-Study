@@ -17,6 +17,20 @@ export default function Examples() {
     console.log(selectedButton);
   }
 
+  let tabContent = <p>탭을 선택해주세요</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
+
   return (
     <section id="examples">
       <h2>예시들</h2>
@@ -50,17 +64,7 @@ export default function Examples() {
           State
         </TabButton>
       </menu>
-      {!selectedTopic ? (
-        <p>탭을 선택해주세요</p>
-      ) : (
-        <div id="tab-content">
-          <h3>{EXAMPLES[selectedTopic].title}</h3>
-          <p>{EXAMPLES[selectedTopic].description}</p>
-          <pre>
-            <code>{EXAMPLES[selectedTopic].code}</code>
-          </pre>
-        </div>
-      )}
+      {tabContent}
     </section>
   );
 }
