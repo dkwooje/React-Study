@@ -21,6 +21,16 @@ function Header() {
   );
 }
 
+function CoreConcepts({ image, title, description }) {
+  return (
+    <li>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </li>
+  );
+}
+
 function App() {
   return (
     <div>
@@ -29,26 +39,10 @@ function App() {
         <section id="core-concepts">
           <h2>Time to get started!</h2>
           <ul>
-            <li>
-              <img src={CORE_CONCEPTS[0].image} alt={CORE_CONCEPTS[0].title} />
-              <h3>{CORE_CONCEPTS[0].title}</h3>
-              <p>{CORE_CONCEPTS[0].description}</p>
-            </li>
-            <li>
-              <img src={CORE_CONCEPTS[1].image} alt={CORE_CONCEPTS[1].title} />
-              <h3>{CORE_CONCEPTS[1].title}</h3>
-              <p>{CORE_CONCEPTS[1].description}</p>
-            </li>
-            <li>
-              <img src={CORE_CONCEPTS[2].image} alt={CORE_CONCEPTS[2].title} />
-              <h3>{CORE_CONCEPTS[2].title}</h3>
-              <p>{CORE_CONCEPTS[2].description}</p>
-            </li>
-            <li>
-              <img src={CORE_CONCEPTS[3].image} alt={CORE_CONCEPTS[3].title} />
-              <h3>{CORE_CONCEPTS[3].title}</h3>
-              <p>{CORE_CONCEPTS[3].description}</p>
-            </li>
+            <CoreConcepts {...CORE_CONCEPTS[0]} />
+            <CoreConcepts {...CORE_CONCEPTS[1]} />
+            <CoreConcepts {...CORE_CONCEPTS[2]} />
+            <CoreConcepts {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
       </main>
