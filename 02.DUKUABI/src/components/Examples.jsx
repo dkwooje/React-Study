@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { EXAMPLES } from '../data';
+
 function TabButton({ children, onClick }) {
   return (
     <li>
@@ -7,49 +10,53 @@ function TabButton({ children, onClick }) {
 }
 
 export default function Examples() {
+  const [selectedTopic, setSelectedTopic] = useState('components');
+
   function handleClick(selectedButton) {
-    console.log(`${selectedButton}버튼이 클릭 되었습니다.`);
+    setSelectedTopic(selectedButton);
+    console.log(selectedButton);
   }
 
   return (
     <section id="examples">
       <h2>예시들</h2>
       <menu>
-        {/*
-        <TabButton onClick={function(){handleClick('컴포넌트')}}>컴포넌트</TabButton>
-        <TabButton onClick={function(){handleClick('제이액스')}}>JSX</TabButton>
-        <TabButton onClick={function(){handleClick('프롬프')}}>Props</TabButton>
-        <TabButton onClick={function(){handleClick('스테이트')}}>State</TabButton>
-        */}
         <TabButton
           onClick={() => {
-            handleClick('컴포넌트');
+            handleClick('components');
           }}
         >
           컴포넌트
         </TabButton>
         <TabButton
           onClick={() => {
-            handleClick('제이액스');
+            handleClick('jsx');
           }}
         >
           JSX
         </TabButton>
         <TabButton
           onClick={() => {
-            handleClick('프롬프');
+            handleClick('props');
           }}
         >
           Props
         </TabButton>
         <TabButton
           onClick={() => {
-            handleClick('스테이트');
+            handleClick('state');
           }}
         >
           State
         </TabButton>
       </menu>
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
     </section>
   );
 }
