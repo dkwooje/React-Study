@@ -1,5 +1,6 @@
 import CoreConcepts from './components/CoreConcept';
 import Header from './components/header/Header';
+import Examples from './components/Examples';
 
 function App() {
   return (
@@ -7,9 +8,10 @@ function App() {
       <Header />
       <main>
         <CoreConcepts />
+        <Examples />
       </main>
     </div>
-  ); //컴포넌트 사용 <Header />
+  );
 }
 
 export default App;
