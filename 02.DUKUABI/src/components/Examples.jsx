@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { EXAMPLES } from '../data';
 
-function TabButton({ children, onClick }) {
+function TabButton({ children, onClick, isSelected }) {
   return (
     <li>
-      <button onClick={onClick}>{children}</button>
+      <button className={isSelected ? 'active' : undefined} onClick={onClick}>
+        {children}
+      </button>
     </li>
   );
 }
@@ -36,6 +38,7 @@ export default function Examples() {
       <h2>예시들</h2>
       <menu>
         <TabButton
+          isSelected={selectedTopic === 'components'}
           onClick={() => {
             handleClick('components');
           }}
@@ -43,6 +46,7 @@ export default function Examples() {
           컴포넌트
         </TabButton>
         <TabButton
+          isSelected={selectedTopic === 'jsx'}
           onClick={() => {
             handleClick('jsx');
           }}
@@ -50,6 +54,7 @@ export default function Examples() {
           JSX
         </TabButton>
         <TabButton
+          isSelected={selectedTopic === 'props'}
           onClick={() => {
             handleClick('props');
           }}
@@ -57,6 +62,7 @@ export default function Examples() {
           Props
         </TabButton>
         <TabButton
+          isSelected={selectedTopic === 'state'}
           onClick={() => {
             handleClick('state');
           }}
